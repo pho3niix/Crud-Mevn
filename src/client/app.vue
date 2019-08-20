@@ -8,7 +8,7 @@
                     <router-link class="nav-link" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                    <router-link class="nav-link" to="/about">About</router-link>
+                    <router-link class="nav-link" to="/world">World</router-link>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

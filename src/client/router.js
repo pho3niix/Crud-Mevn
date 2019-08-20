@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import notf from './components/notFound.vue';
 import About from './views/About.vue';
+import Insert from './views/NewMario.vue';
+import World from './views/World.vue';
 
 Vue.use(Router);
 
@@ -11,10 +13,18 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Home,
+            name: 'insert',
+            component: Insert,
             meta: {
                 title: 'Home'
+            }
+        },
+        {
+            path: '/world',
+            name: 'world',
+            component: World,
+            meta: {
+                title: 'World'
             }
         },
         {
@@ -27,14 +37,6 @@ export default new Router({
         {
             path: '*',
             redirect: '/NotFound'
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About,
-            meta: {
-                title: 'About'
-            }
         }
     ]
 });
