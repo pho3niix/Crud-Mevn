@@ -9,6 +9,7 @@ const app = express();
 const normalizePort = require('normalize-port');
 
 //Set up default mongoose connection
+// var mongoDB = 'mongodb://localhost:27017/users';
 var mongoDB = 'mongodb+srv://ph03nix:qbZS0YnYJEacAMbk@cluster0-srdla.mongodb.net/users?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {useNewUrlParser: true}, console.log('success connected'));
 mongoose.Promise = global.Promise;// Get Mongoose to use the global promise library
@@ -25,10 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// static files
-// app.use('/', express.static('./public'));
-// console.log((__dirname));
 
 //Routes variables
 const rest = require('./routes/index');
