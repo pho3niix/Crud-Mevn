@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" scoped>
-    $altura: 90vh;
+    $altura: 89vh;
 
     .insert{
         display: flex;
