@@ -9,8 +9,8 @@ const app = express();
 const normalizePort = require('normalize-port');
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://localhost:27017/users';
-mongoose.connect(mongoDB, {useNewUrlParser: true});
+var mongoDB = 'mongodb+srv://ph03nix:qbZS0YnYJEacAMbk@cluster0-srdla.mongodb.net/users?retryWrites=true&w=majority';
+mongoose.connect(mongoDB, {useNewUrlParser: true}, console.log('success connected'));
 mongoose.Promise = global.Promise;// Get Mongoose to use the global promise library
 var db = mongoose.connection;//Get the default connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));//Bind connection to error event (to get notification of connection errors)
