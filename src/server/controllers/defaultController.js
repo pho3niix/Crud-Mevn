@@ -82,9 +82,9 @@ control.upWorld = (req, res)=>{
 
 /** Borrar registro por ID en la base de datos */
 control.delWorld = (req, res)=>{
-    marioModel.remove(
+    marioModel.deleteOne(
         {
-            _id: req.body.id
+            _id: req.params.id
         },
         (err)=>{
             if(err){
@@ -98,7 +98,7 @@ control.delWorld = (req, res)=>{
                 return res.status(200).json(
                     {
                         success: true,
-                        message: "Successfullu deleted"
+                        message: "Successfully deleted"
                     }
                 );
             }

@@ -6,9 +6,9 @@
         <div id="form">
             <h2 id="titulo">{{ msg }}</h2>
             <div id="forma">
-                <input v-model="char" type="text" name="nick" id="character" placeholder="Character Name"><br>
-                <input v-model="power" type="text" name="name" id="power" placeholder="Power"><br>
-                <input v-model="life" type="text" name="last" id="life" placeholder="Life"><br>
+                <input ref="first" v-on:keyup.enter="enviar()" v-model="char" type="text" name="nick" id="character" placeholder="Character Name"><br>
+                <input v-on:keyup.enter="enviar()" v-model="power" type="text" name="name" id="power" placeholder="Power"><br>
+                <input v-on:keyup.enter="enviar()" v-model="life" type="text" name="last" id="life" placeholder="Life"><br>
                 <input type="button" value="Save" id="save" v-on:click="enviar()">
             </div>
         </div>
@@ -25,6 +25,9 @@
                 msg: 'Welcome to the jungle'
             }
         },
+        mounted() {
+            this.$refs.first.focus();
+        },
         methods: {
             enviar() {
                 if(this.char=="" || this.power=="" || this.life==""){
@@ -40,6 +43,8 @@
                         this.char = "";
                         this.power = "";
                         this.life = "";
+                        this.$refs.first.focus();
+                        // this.$router.push('/world')
                     })
                 };
             }
@@ -91,8 +96,11 @@
                 border: none;
                 border-radius: .5vw;
                 margin-top: 2vh;
-                &:active{
-                    box-shadow: 0 0 .5vw #324759;
+                transition: .5s;
+                box-shadow: 0 0 2px black;
+                &:hover{
+                    box-shadow: 0 0 1vh black;
+
                 }
             }
         }

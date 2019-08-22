@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import hello from '../components/hello.vue';
+    import hello from '../components/Hello.vue';
 
     export default {
         name: 'home',
