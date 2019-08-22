@@ -1,8 +1,8 @@
 <template>
     <div class="card">
-        <p>{{ name }}</p>
-        <p>{{ power }}</p>
-        <p>{{ life }}</p>
+        <p>{{ name | capital}}</p>
+        <p>{{ power | capital}}</p>
+        <p>{{ life | capital}}</p>
         <input type="button" id="edit" value="Editar">
         <input type="button"
         v-on:click="delWorld()"
@@ -22,6 +22,15 @@
             delWorld(){
                 this.$emit('created')
             },
+        },
+        filters: {
+            capital(value){
+                if(!value){ return '' }
+
+                value = value.toString();
+
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
         }
     }
 </script>
@@ -36,7 +45,7 @@
         height: 23.3vh;
         background-color: #324759;
         color: white;
-        margin-right: 2vw;
+        // margin-right: 2vw;
         margin-left: 2vw;
         margin-top: 2vh;
         box-shadow: 0 0 2px black;

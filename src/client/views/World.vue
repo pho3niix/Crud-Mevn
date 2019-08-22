@@ -4,9 +4,9 @@
             <h2>Mario Universe</h2>
         </div>
         <div id="content">
-            <h3 id="else" v-if="totalWorld==0">{{ before }}</h3>
-            <div v-else>
-                <card v-for="dato in world"
+            <div id="deck">
+                <h3 id="else" v-if="totalWorld==0">{{ before }}</h3>
+                <card v-else v-for="dato in world"
                 :key="dato.id" :name='dato.name' 
                 :power="dato.power" :life="dato.life" 
                 @created="deleteM(dato._id)"/>
@@ -27,8 +27,9 @@
             return{
                 world: null,
                 totalWorld: 0,
-                before: "There's no characters yet",
-                url: '/api/world'
+                before: 'Loading...',
+                url: '/api/world',
+                status: false
             }
         },
         methods: {
@@ -39,14 +40,19 @@
                 })
                 .then(()=>{
                     this.totalWorld = this.world.length;
-                });
+                })
+                .finally(()=>{
+                    if(this.totalWorld==0){
+                        this.before = "There's no characthers yet"
+                    }
+                })
             },
             deleteM(e){
                 this.axios.delete('/api/delWorld/' + e)
                 .then((res)=>{
                     this.getWorld(this.url);
                 })
-            },
+            }
         },
         mounted() {
             this.getWorld(this.url);
@@ -72,14 +78,24 @@
 
         #content{
             display: flex;
-            flex-wrap: wrap;
-            width: 100%;
+            width: 100vw;
             height: 81vh;
             justify-content: center;
 
-            #else{
-                align-self: center;
+            #deck{
+                display: flex;
+                width: 90vw;
+                height: 81vh;
+                flex-wrap: wrap;
+
+                #else{
+                    display: block;
+                    margin-right: auto;
+                    margin-left: auto;
+                    align-self: center;
+                }
             }
+
         }
     }
 </style>

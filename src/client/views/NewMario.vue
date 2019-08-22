@@ -7,8 +7,9 @@
             <h2 id="titulo">{{ msg }}</h2>
             <div id="forma">
                 <input ref="first" v-on:keyup.enter="enviar()" v-model="char" type="text" name="nick" id="character" placeholder="Character Name"><br>
-                <input v-on:keyup.enter="enviar()" v-model="power" type="text" name="name" id="power" placeholder="Power"><br>
-                <input v-on:keyup.enter="enviar()" v-model="life" type="text" name="last" id="life" placeholder="Life"><br>
+                <input v-on:keyup.enter="enviar()" v-model="power" type="text"
+                v-on:keypress="number" name="power" id="power" placeholder="Power"><br>
+                <input v-on:keyup.enter="enviar()" v-model="life" type="text" v-on:keypress="number" v-on:input="number" name="life" id="life" placeholder="Life"><br>
                 <input type="button" value="Save" id="save" v-on:click="enviar()">
             </div>
         </div>
@@ -44,16 +45,21 @@
                         this.power = "";
                         this.life = "";
                         this.$refs.first.focus();
-                        // this.$router.push('/world')
                     })
                 };
+            },
+            number ($event) {
+                let keyCode = $event.keyCode;
+                if ((keyCode < 48 || keyCode > 57) && (keyCode !== 46 || this.price.indexOf('.') != -1)) {
+                $event.preventDefault();
+                }
             }
         },
     }
 </script>
 
 <style lang="scss" scoped>
-    $altura: 89vh;
+    $altura: 89vzh;
 
     .insert{
         display: flex;
