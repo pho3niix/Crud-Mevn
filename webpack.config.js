@@ -6,7 +6,7 @@ module.exports= {
     mode: 'development',
     entry: './src/client/main.js',
     output: {
-        path: path.join(__dirname + './public/js'),
+        path: path.join(__dirname + 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -61,7 +61,7 @@ module.exports= {
         historyApiFallback: true,
         proxy: {
             context: ['/api/**'],
-            target: 'http://localhost:3000',
+            target: 'http://localhost:3100',
             secure: true
         }
     },
