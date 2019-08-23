@@ -6,7 +6,7 @@ module.exports= {
     mode: 'development',
     entry: './src/client/main.js',
     output: {
-        path: path.resolve('./public/js'),
+        path: path.join(__dirname + './public/js'),
         filename: 'bundle.js'
     },
     module: {
@@ -61,7 +61,7 @@ module.exports= {
         historyApiFallback: true,
         proxy: {
             context: ['/api/**'],
-            target: 'http://localhost:3100',
+            target: 'http://localhost:3000',
             secure: true
         }
     },
@@ -69,7 +69,8 @@ module.exports= {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            template: path.join(__dirname, './public/index.html'),
+            favicon: path.join(__dirname, './public/favicon.ico')
         })
     ]
 };
