@@ -4,6 +4,7 @@ import router from './router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vuex from 'vuex';
+import store from './store';
 
 Vue.use(VueAxios, axios, Vuex);
 
@@ -16,7 +17,8 @@ router.beforeEach((to, from, next) => {
 
 new Vue(
     {
-        router,
-        render: h => h(App),
+      store,
+      router,
+      render: h => h(App),
     }
 ).$mount('#app')
