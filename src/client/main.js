@@ -3,10 +3,11 @@ import App from './app.vue';
 import router from './router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import Vuex from 'vuex';
 
-Vue.use(VueAxios, axios);
+Vue.use(VueAxios, axios, Vuex);
 
-// Vue.config.productionTip = false;
+Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
