@@ -7,7 +7,7 @@ module.exports= {
     mode: 'development',
     entry: './src/client/main.js',
     output: {
-        path: path.resolve('./public/js'),
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     module: {

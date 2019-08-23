@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const app = express();
-const normalizePort = require('normalize-port');
+// const normalizePort = require('normalize-port');
 
 //Set up default mongoose connection
 // var mongoDB = 'mongodb://localhost:27017/users';//conexion local
@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('dist'));
 
 
 
@@ -35,7 +36,7 @@ const rest = require('./routes/index');
 //Routes
 app.use('/api', rest);
 
-const port = normalizePort(process.env.PORT || '3100');
+const port = process.env.PORT || 3100;
 
 // Not found error template
 app.use(function(req, res, next) {
