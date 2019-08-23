@@ -65,7 +65,7 @@ module.exports= {
             secure: true
         }
     },
-    watch: true,
+    // watch: true,
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
