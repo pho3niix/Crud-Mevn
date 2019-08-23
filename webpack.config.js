@@ -6,7 +6,7 @@ module.exports= {
     mode: 'development',
     entry: './src/client/main.js',
     output: {
-        path: path.join(__dirname + './public/js'),
+        path: path.resolve('./public/js'),
         filename: 'bundle.js'
     },
     module: {
@@ -68,8 +68,8 @@ module.exports= {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, './public/index.html'),
-            favicon: path.join(__dirname, './public/favicon.ico')
+            template: './public/index.html',
+            favicon: './public/favicon.ico'
         })
     ]
 };
