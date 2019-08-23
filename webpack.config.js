@@ -6,7 +6,7 @@ module.exports= {
     mode: 'development',
     entry: './src/client/main.js',
     output: {
-        path: path.join(__dirname + 'dist'),
+        path: path.join(__dirname + './public/js'),
         filename: 'bundle.js'
     },
     module: {
@@ -65,7 +65,6 @@ module.exports= {
             secure: true
         }
     },
-    // watch: true,
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
@@ -74,6 +73,3 @@ module.exports= {
         })
     ]
 };
-
-// invesitgar devserver webpack
-// html webpack plugin <- para cargar las vistas del cliente
