@@ -28,8 +28,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('dist'));
 
-
-
 //Routes variables
 const rest = require('./routes/index');
 
@@ -40,8 +38,8 @@ const port = process.env.PORT || 3100;
 
 // Not found error template
 app.use(function(req, res, next) {
-    next(createError(404));
-    // res.status(404).sendFile(path.join(__dirname + '/views/notFound.html'));
+    // next(createError(404));
+    res.status(404).sendFile(path.join(__dirname + '/views/notFound.html'));
 });
   
 // error handler
@@ -60,10 +58,3 @@ app.listen(port, ()=>{
 });
 
 module.exports = app;
-
-/**Code trash */
-
-// var mongoDB = 'mongodb://localhost:27017/users';
-// mongoose.connect(mongoDB, {useNewUrlParser: true}, (err)=>{
-//     if(err) throw err;
-// });
