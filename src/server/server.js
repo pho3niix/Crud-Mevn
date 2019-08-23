@@ -23,9 +23,11 @@ app.use(cors());
 app.use(express.json());//procesar los datos en formato json
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 //Routes variables
 const rest = require('./routes/index');
@@ -37,8 +39,8 @@ const port = normalizePort(process.env.PORT || '3100');
 
 // Not found error template
 app.use(function(req, res, next) {
-    // next(createError(404));
-    res.status(404).sendFile(path.join(__dirname + '/views/notFound.html'));
+    next(createError(404));
+    // res.status(404).sendFile(path.join(__dirname + '/views/notFound.html'));
 });
   
 // error handler
