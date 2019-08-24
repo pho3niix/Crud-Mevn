@@ -78,7 +78,14 @@
 
         #image, #form{
             width: 50%;
-            height: $altura;
+            height: 100%;
+        }
+
+        #image{
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
 
         #form{
@@ -108,13 +115,6 @@
                     box-shadow: 0 0 1vh black;
 
                 }
-            }
-        }
-
-        #image{
-            img{
-                width: 100%;
-                height: 100%;
             }
         }
     }

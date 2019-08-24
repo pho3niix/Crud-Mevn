@@ -67,7 +67,7 @@
     .world{
         display: flex;
         width: 100vw;
-        height: 89vh;
+        height: 90vh;
         flex-wrap: wrap;
         position: relative;
         justify-content: center;

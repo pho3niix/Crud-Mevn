@@ -1,20 +1,16 @@
 <template>
     <div id="app">
         <div id="nav">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <nav id="nave" class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                    <router-link class="nav-link" to="/">Home</router-link>
-                    </li>
-                    <li class="nav-item">
-                    <router-link class="nav-link" to="/world">World</router-link>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                        <router-link class="nav-link" to="/">Home</router-link>
+                        </li>
+                        <li class="nav-item">
+                        <router-link class="nav-link" to="/world">World</router-link>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
@@ -35,6 +31,10 @@
     }
     a{
         font-size: 18px;
+    }
+
+    #nave{
+        height: 10vh;
     }
 
 </style>
