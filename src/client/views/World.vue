@@ -52,6 +52,9 @@
                 .then((res)=>{
                     this.getWorld(this.url);
                 })
+            },
+            editWorld() {
+                // pending...
             }
         },
         mounted() {
