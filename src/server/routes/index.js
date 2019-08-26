@@ -16,5 +16,6 @@ router.post('/newMario', control.newMario);//Insertar nuevo registro
 router.get('/world', control.listMario);//Obtener registros
 router.put('/upWorld', control.upWorld);//Actualizar registros por ID
 router.delete('/delWorld/:id', control.delWorld);//Eliminar registros por ID
+router.get('/findChar/:id', control.findChar);//Obtener registro por id
 
 module.exports = router;

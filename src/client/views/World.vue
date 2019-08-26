@@ -6,22 +6,34 @@
         <div id="content">
             <div id="deck">
                 <h3 id="else" v-if="totalWorld==0">{{ before }}</h3>
-                <card v-else v-for="dato in world"
-                :key="dato.id" :name='dato.name' 
-                :power="dato.power" :life="dato.life" 
-                @created="deleteM(dato._id)"/>
+                <card v-else 
+                v-for="dato in world"
+                :key="dato.id" 
+                :name='dato.name' 
+                :power="dato.power" 
+                :life="dato.life" 
+                @deleted="deleteM(dato._id)" 
+                @selected="isOpen = true"
+                />
             </div>
+
+            <modal
+             v-show="isOpen" 
+             @close="isOpen = false"
+             />
         </div>
     </div>
 </template>
 
 <script>
     import card from '../components/card.vue';
+    import modal from '../components/editModal.vue';
 
     export default {
         name: 'world',
         components:{
-            card
+            card,
+            modal
         },
         data() {
             return{
@@ -29,7 +41,9 @@
                 totalWorld: 0,
                 before: 'Loading...',
                 url: '/api/world',
-                status: false
+                status: false,
+                characther: null,
+                isOpen: false
             }
         },
         methods: {
@@ -53,8 +67,11 @@
                     this.getWorld(this.url);
                 })
             },
-            editWorld() {
-                // pending...
+            editWorld(a) {
+                this.axios.get('/api/findChar/' + a)
+                .then((res)=>{
+                    this.characther = res.data;
+                })
             }
         },
         mounted() {

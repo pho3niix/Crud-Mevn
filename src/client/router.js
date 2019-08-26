@@ -5,6 +5,7 @@ import notf from './components/notFound.vue';
 // import About from './views/About.vue';
 import Insert from './views/NewMario.vue';
 import World from './views/World.vue';
+// import modal from './components/editModal.vue'
 
 Vue.use(Router);
 

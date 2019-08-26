@@ -1,9 +1,9 @@
 <template>
     <div class="card">
-        <p>{{ name | capital}}</p>
+        <p>{{ name | capital}}
         <p>{{ power | capital}}</p>
         <p>{{ life | capital}}</p>
-        <input type="button" id="edit" value="Editar">
+        <input v-on:click="openModal()" type="button" id="edit" value="Editar">
         <input type="button"
         v-on:click="delWorld()"
         id="del" value="Borrar">
@@ -20,8 +20,11 @@
         },
         methods: {
             delWorld(){
-                this.$emit('created')
+                this.$emit('deleted')
             },
+            openModal(){
+                this.$emit('selected');
+            }
         },
         filters: {
             capital(value){

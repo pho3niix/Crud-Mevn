@@ -49,6 +49,25 @@ control.listMario = (req, res)=>{
     });
 };
 
+/** Buscar registro  */
+control.findChar = (req, res)=>{
+    marioModel.findById(
+        {
+            _id: req.params.id
+        }
+    ).exec((err, char)=>{
+        if(err){
+            return res.send(err)
+        }else{
+            return res.status(200).json(
+                {
+                    char
+                }
+            )
+        }
+    })
+}
+
 /** Actulizar registros por ID*/
 control.upWorld = (req, res)=>{
     const updateWorld = {
@@ -56,11 +75,11 @@ control.upWorld = (req, res)=>{
         power: req.body.power,
         life: req.body.life
     };
-    marioModel.updateOne(
+    marioModel.findOneAndUpdate(
         {
             _id: req.body.id
         },
-        updateWorld, (err)=>{
+        updateWorld, {new: true}, (err, world)=>{
             if(err){
                 return res.status(400).json(
                     {
@@ -72,7 +91,8 @@ control.upWorld = (req, res)=>{
                 return res.status(200).json(
                     {
                         status: true,
-                        message: "Successfully updated"
+                        message: "Successfully updated",
+                        world
                     }
                 );
             }

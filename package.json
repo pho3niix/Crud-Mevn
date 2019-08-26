@@ -44,6 +44,7 @@
     "morgan": "^1.9.1",
     "normalize-port": "^1.0.0",
     "passport": "^0.4.0",
+    "sweet-modal-vue": "^2.0.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.1.2",
