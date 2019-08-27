@@ -18,9 +18,11 @@
             </div>
 
             <modal
-             v-show="isOpen" 
-             @close="isOpen = false"
-             />
+            v-show="isOpen"
+            @close="isOpen = false"
+            v-for="char in world"
+            :key="char._id"
+            />
         </div>
     </div>
 </template>
@@ -61,8 +63,8 @@
                     }
                 })
             },
-            deleteM(e){
-                this.axios.delete('/api/delWorld/' + e)
+            deleteM(i){
+                this.axios.delete('/api/delWorld/' + i)
                 .then((res)=>{
                     this.getWorld(this.url);
                 })
@@ -71,6 +73,7 @@
                 this.axios.get('/api/findChar/' + a)
                 .then((res)=>{
                     this.characther = res.data;
+                    console.log(this.characther);
                 })
             }
         },
