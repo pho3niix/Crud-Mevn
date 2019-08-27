@@ -63,12 +63,12 @@
                     }
                 })
             },
-            deleteM(i){
+            deleteM(i){ if(confirm('estas seguro?')){
                 this.axios.delete('/api/delWorld/' + i)
                 .then((res)=>{
                     this.getWorld(this.url);
                 })
-            },
+            }},
             editWorld(a) {
                 this.axios.get('/api/findChar/' + a)
                 .then((res)=>{
