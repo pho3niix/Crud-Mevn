@@ -1,7 +1,7 @@
 <template>
     <div class="edit">
         <div id="modal">
-            <input class="item" style="background-color:#bbbbbb;" type="text" readonly>
+            <input class="item" style="background-color:#bbbbbb;" type="text" readonly v-model="id">
             <input class="item" type="text" v-model="name">
             <input class="item" type="text" v-model="power">
             <input class="item" type="text" v-model="life">
@@ -18,12 +18,16 @@
         props:{
             name: String,
             power: Number,
-            life: Number
+            life: Number,
+            id: String
         },
         methods:{
             close() {
                 this.$emit('close')
-            }
+            },
+        },
+        mounted(){
+            
         }
     }
 </script>
