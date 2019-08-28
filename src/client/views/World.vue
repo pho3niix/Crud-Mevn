@@ -5,21 +5,25 @@
         </div>
         <div id="content">
             <div id="deck">
-                <h3 id="else" v-if="totalWorld==0">{{ before }}</h3>
-                <card v-else 
+                <h3 id="else" v-if="totalWorld == 0">{{ before }}</h3>
+                <card v-else
                 v-for="dato in world"
                 :key="dato.id" 
                 :name='dato.name' 
                 :power="dato.power" 
                 :life="dato.life" 
-                @deleted="deleteM(dato._id)" 
+                @deleted="deleteM(dato._id)"
                 @selected="isOpen = true"
+                @click="findChar(dato._id)"
                 />
             </div>
-
             <modal
             v-show="isOpen"
             @close="isOpen = false"
+            :id="characther._id"
+            :name="characther.name"
+            :power="characther.power"
+            :life="characther.life"
             />
         </div>
     </div>
@@ -38,29 +42,26 @@
         },
         data() {
             return{
-                before: this.$store.state.before,
-                url: '/api/world',
-                status: false,
-                characther: null,
                 isOpen: false
             }
         },
         methods: {
             deleteM(i){
-                if(confirm('estas seguro?')){
-                    this.axios.delete('/api/delWorld/' + i)
-                    .then((res)=>{
-                        this.$store.dispatch('getWorld');
-                    })
-                }
+                this.$store.dispatch('deleteWorld', i)
             },
+            findChar(a){
+                this.$store.dispatch('findWorld',a)
+            }
         },
         mounted(){
-            this.$store.dispatch('getWorld')
+            this.$store.dispatch('getWorld');
         },
         computed:{
             ...mapState([
-                'world'
+                'world',
+                'totalWorld',
+                'before',
+                'characther'
             ])
         }
     }

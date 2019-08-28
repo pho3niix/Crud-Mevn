@@ -5,7 +5,8 @@
             <input class="item" type="text" v-model="name">
             <input class="item" type="text" v-model="power">
             <input class="item" type="text" v-model="life">
-            <input type="button" id="edit" value="Actualizar">
+            <input type="button" id="edit" value="Actualizar"
+            >
             <input type="button"
             id="save" value="Cancelar" v-on:click="close">
         </div>
@@ -23,11 +24,10 @@
         },
         methods:{
             close() {
-                this.$emit('close')
+                this.$emit('close');
             },
         },
         mounted(){
-            
         }
     }
 </script>
@@ -56,7 +56,6 @@
         height: 31.5vh;
         background-color: #324759;
         color: white;
-        // margin-right: 2vw;
         margin-left: 2vw;
         margin-top: 2vh;
         box-shadow: 0 0 2px black;

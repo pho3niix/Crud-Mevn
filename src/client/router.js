@@ -36,13 +36,6 @@ export default new Router({
         {
             path: '*',
             redirect: '/NotFound'
-        },
-        {
-            path: '/practica',
-            component: practica,
-            meta:{
-                title: 'Practica'
-            }
         }
     ]
 });

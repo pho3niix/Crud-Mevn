@@ -3,7 +3,7 @@
         <p>{{ name | capital}}
         <p>{{ power | capital}}</p>
         <p>{{ life | capital}}</p>
-        <input v-on:click="openModal()" type="button" id="edit" value="Editar">
+        <input v-on:click="openModal(), findChar()" type="button" id="edit" value="Editar">
         <input type="button"
         v-on:click="delWorld()"
         id="del" value="Borrar">
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
+
     export default {
         name: 'card',
         props:{
@@ -18,12 +20,20 @@
             power: Number,
             life: Number
         },
+        data(){
+            return{
+
+            }  
+        },
         methods: {
             delWorld(){
                 this.$emit('deleted')
             },
             openModal(){
                 this.$emit('selected');
+            },
+            findChar(){
+                this.$emit('click')
             }
         },
         filters: {
@@ -34,6 +44,9 @@
 
                 return value.charAt(0).toUpperCase() + value.slice(1)
             }
+        },
+        computed:{
+
         }
     }
 </script>
@@ -45,7 +58,7 @@
         border-radius: 1vw;
         padding: .5vw;
         width: 20vw;
-        height: 23.3vh;
+        height: 23vh;
         background-color: #324759;
         color: white;
         // margin-right: 2vw;
