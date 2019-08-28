@@ -31,7 +31,7 @@
         },
         methods: {
             enviar() {
-                if(this.char=="" || this.power=="" || this.life==""){
+                if(this.char==null || this.power==null || this.life==null){
                     alert('Asegurese de llenar todos los campos');
                 }else{
                     this.axios.post('/api/newMario', {

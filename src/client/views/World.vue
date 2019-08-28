@@ -20,8 +20,6 @@
             <modal
             v-show="isOpen"
             @close="isOpen = false"
-            v-for="char in world"
-            :key="char._id"
             />
         </div>
     </div>
@@ -30,6 +28,7 @@
 <script>
     import card from '../components/card.vue';
     import modal from '../components/editModal.vue';
+    import {mapState, mapGetter, mapActions} from 'vuex';
 
     export default {
         name: 'world',
@@ -39,9 +38,7 @@
         },
         data() {
             return{
-                world: null,
-                totalWorld: 0,
-                before: 'Loading...',
+                before: this.$store.state.before,
                 url: '/api/world',
                 status: false,
                 characther: null,
@@ -49,37 +46,23 @@
             }
         },
         methods: {
-            getWorld(e) {
-                    this.axios.get(e)
-                    .then((res) =>{
-                    this.world = res.data;
-                })
-                .then(()=>{
-                    this.totalWorld = this.world.length;
-                })
-                .finally(()=>{
-                    if(this.totalWorld==0){
-                        this.before = "There's no characthers yet"
-                    }
-                })
+            deleteM(i){
+                if(confirm('estas seguro?')){
+                    this.axios.delete('/api/delWorld/' + i)
+                    .then((res)=>{
+                        this.$store.dispatch('getWorld');
+                    })
+                }
             },
-            deleteM(i){ if(confirm('estas seguro?')){
-                this.axios.delete('/api/delWorld/' + i)
-                .then((res)=>{
-                    this.getWorld(this.url);
-                })
-            }},
-            editWorld(a) {
-                this.axios.get('/api/findChar/' + a)
-                .then((res)=>{
-                    this.characther = res.data;
-                    console.log(this.characther);
-                })
-            }
         },
-        mounted() {
-            this.getWorld(this.url);
+        mounted(){
+            this.$store.dispatch('getWorld')
         },
+        computed:{
+            ...mapState([
+                'world'
+            ])
+        }
     }
 </script>
 
