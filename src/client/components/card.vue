@@ -1,12 +1,12 @@
 <template>
     <div class="card">
-        <p>{{ name | capital}}
-        <p>{{ power | capital}}</p>
-        <p>{{ life | capital}}</p>
-        <input v-on:click="openModal(), findChar()" type="button" id="edit" value="Editar">
+        <p>Name: {{ name | capital}}
+        <p>Power: {{ power | capital}}</p>
+        <p>Life: {{ life | capital}}</p>
+        <input v-on:click="openModal(), findChar()" type="button" id="edit" value="Edit">
         <input type="button"
         v-on:click="delWorld()"
-        id="del" value="Borrar">
+        id="del" value="Delete">
     </div>
 </template>
 

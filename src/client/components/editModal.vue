@@ -4,13 +4,13 @@
             <input v-show="false" class="item" 
             style="background-color:#bbbbbb;"
              type="text" readonly v-model="id">
-            <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="name">
+            <input ref="first" v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="name">
             <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="power">
             <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="life">
-            <input v-on:click="upWorld(), close()" type="button" id="edit" value="Actualizar"
+            <input v-on:click="upWorld(), close()" type="button" id="edit" value="Update"
             >
             <input type="button"
-            id="save" value="Cancelar" v-on:click="close">
+            id="save" value="Cancel" v-on:click="close">
         </div>
     </div>
 </template>
@@ -41,7 +41,7 @@
             }
         },
         mounted(){
-
+            this.$refs.first.focus();
         }
     }
 </script>
