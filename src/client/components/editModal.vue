@@ -1,11 +1,13 @@
 <template>
     <div class="edit">
         <div id="modal">
-            <input class="item" style="background-color:#bbbbbb;" type="text" readonly v-model="id">
-            <input class="item" type="text" v-model="name">
-            <input class="item" type="text" v-model="power">
-            <input class="item" type="text" v-model="life">
-            <input type="button" id="edit" value="Actualizar"
+            <input v-show="false" class="item" 
+            style="background-color:#bbbbbb;"
+             type="text" readonly v-model="id">
+            <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="name">
+            <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="power">
+            <input v-on:keyup.enter="upWorld(), close()" class="item" type="text" v-model="life">
+            <input v-on:click="upWorld(), close()" type="button" id="edit" value="Actualizar"
             >
             <input type="button"
             id="save" value="Cancelar" v-on:click="close">
@@ -26,8 +28,20 @@
             close() {
                 this.$emit('close');
             },
+            upWorld(){
+                this.axios.put('/api/upWorld', {
+                    id: this.id,
+                    name: this.name,
+                    power: this.power,
+                    life: this.life
+                })
+                .then(()=>{
+                    this.$store.dispatch('getWorld')
+                })
+            }
         },
         mounted(){
+
         }
     }
 </script>
@@ -42,8 +56,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background-color: rgba(0, 0, 0, .5);
         transition: opacity .3s ease;
     }
@@ -53,7 +67,7 @@
         border-radius: 1vw;
         padding: .5vw;
         width: 20vw;
-        height: 31.5vh;
+        height: 25vh;
         background-color: #324759;
         color: white;
         margin-left: 2vw;
