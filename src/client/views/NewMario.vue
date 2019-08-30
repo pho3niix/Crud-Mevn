@@ -66,6 +66,7 @@
         display: flex;
         width: 100vw;
         height: $altura;
+        overflow: hidden;
 
         input[type="text"]{
             width: 100%;
@@ -85,7 +86,7 @@
         #image{
             img{
                 width: $ancho;
-                height: 89vh;
+                height: 90vh;
                 margin: 0;
                 padding: 0;
             }
@@ -103,6 +104,9 @@
             #forma{
                 margin-top: 5vh;
                 width: 80%;
+                p{
+                    margin-top: 2vh;
+                }
             }
 
             #save{

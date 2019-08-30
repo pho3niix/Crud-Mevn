@@ -29,6 +29,10 @@
     input[type='button']{
         cursor: pointer;
     }
+    #app{
+        height: 100vh;
+        overflow-x: hidden;
+    }
 
     #nav{
         height: 10vh;

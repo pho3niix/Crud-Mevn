@@ -67,6 +67,7 @@
         margin-left: 2vw;
         margin-top: 2vh;
         box-shadow: 0 0 2px black;
+
         #content{
             width: 100%;
             height: 100%;
@@ -83,9 +84,10 @@
             background-color: #24A65C;
             border: none;
             width: 8vw;
-            height: 4vh;
+            height: 3.5vh;
             font-size: $size;
             margin-left: 1vw;
+            margin-top: 1vh;
             color: white;
             border-radius: 1vw;
             box-shadow: 0 0 .5vh black;

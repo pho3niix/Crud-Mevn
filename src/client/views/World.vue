@@ -85,7 +85,7 @@
 
             #deck{
                 width: 86vw;
-                padding-bottom: 5vh;
+                padding-bottom: 2vh;
 
                 #else{
                     display: block;
