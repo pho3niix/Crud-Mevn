@@ -4,7 +4,7 @@
             <img src="../assets/way.jpeg" alt="super">
         </div>
         <div id="form">
-            <h2 id="titulo">{{ msg }}</h2>
+            <h1 id="titulo">{{ msg }}</h1>
             <div id="forma">
                 <input ref="first" v-on:keyup.enter="enviar()" v-model="char" type="text" name="nick" id="character" placeholder="Character Name"><br>
                 <input v-on:keyup.enter="enviar()" v-model="power" type="text"
@@ -60,10 +60,11 @@
 
 <style lang="scss" scoped>
     $altura: 90vh;
+    $ancho: 50vw;
 
     .insert{
         display: flex;
-        width: 100%;
+        width: 100vw;
         height: $altura;
 
         input[type="text"]{
@@ -73,18 +74,20 @@
             text-decoration: none;
             border: none;
             border-bottom: 2px solid gray;
-            font-size: 2.5vh;
+            font-size: 1.2vw;
         }
 
         #image, #form{
-            width: 50%;
-            height: 100%;
+            width: $ancho;
+            height: $altura;
         }
 
         #image{
             img{
-                width: 100%;
-                height: 100%;
+                width: $ancho;
+                height: 89vh;
+                margin: 0;
+                padding: 0;
             }
         }
 

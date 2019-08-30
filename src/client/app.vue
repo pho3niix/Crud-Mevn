@@ -1,27 +1,35 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+        <nav id="nav">
+            <ul>
+                <li>
                 <router-link class="nav-link" to="/">Home</router-link>
                 </li>
-                <li class="nav-item">
+                <li>
                 <router-link class="nav-link" to="/world">World</router-link>
                 </li>
             </ul>
-        </div>
+        </nav>
     <router-view/>
     </div>
 </template>
 
 <script>
-
     export default {
         
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    *{
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    input[type='button']{
+        cursor: pointer;
+    }
+
     #nav{
         height: 10vh;
         width: 100vw;
@@ -40,7 +48,7 @@
          ul{
              li{
                  float: left;
-                 margin-left: 1vw;
+                 margin-left: 2vw;
                  list-style: none;
                  font-size: 1.4vw;
              }

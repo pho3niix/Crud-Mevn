@@ -24,6 +24,14 @@
             life: Number,
             id: String
         },
+        data(){
+            return{
+                names: this.name,
+                powers: this.power,
+                lifes: this.life,
+                ids: this.id
+            }
+        },
         methods:{
             close() {
                 this.$emit('close');
@@ -36,17 +44,22 @@
                     life: this.life
                 })
                 .then(()=>{
-                    this.$store.dispatch('getWorld')
+                    this.$store.dispatch('getWorld');
                 })
             }
         },
         mounted(){
             this.$refs.first.focus();
+        },
+        computed(){
+
         }
     }
 </script>
 
 <style lang="scss" scoped>
+
+    $size: 16px;
 
     .edit{
         position: fixed;
@@ -67,7 +80,7 @@
         border-radius: 1vw;
         padding: .5vw;
         width: 20vw;
-        height: 25vh;
+        height: 26vh;
         background-color: #324759;
         color: white;
         margin-left: 2vw;
@@ -76,8 +89,12 @@
 
         .item{
             width: 87.8%;
+            height: 4vh;
+            border-radius: 1vw;
+            text-indent: 1vw;
             margin: 1vh;
             margin-left: 2.4vh;
+            font-size: $size;
         }
 
         .item:nth-child(4){
@@ -87,11 +104,16 @@
         #edit, #save{
             background-color: #24A65C;
             border: none;
-            width: 8vw;
+            width: 8.2vw;
+            height: 4vh;
+            font-size: $size;
             margin-left: 1vw;
             color: white;
             border-radius: 1vw;
-            box-shadow: 0 0 2px black;
+            box-shadow: 0 0 .5vh black;
+        }
+        #edit{
+            margin-left: 1.4vw;
         }
     }
 </style>

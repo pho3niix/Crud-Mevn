@@ -1,7 +1,7 @@
 <template>
     <div class="world">
         <div id="title">
-            <h2>Mario Universe</h2>
+            <h1>Mario Universe</h1>
         </div>
         <div id="content">
             <div id="deck">
@@ -21,7 +21,7 @@
             v-show="isOpen"
             @close="isOpen = false"
             :id="characther._id"
-            :name="characther.name"
+            :name="characther.name" 
             :power="characther.power"
             :life="characther.life"
             />
@@ -72,10 +72,13 @@
         display: flex;
         width: 100vw;
         height: 90vh;
-        flex-wrap: wrap;
+        flex-direction: column;
         position: relative;
         justify-content: center;
-        flex-direction: row;
+
+        h1{
+            font-size: 2.5vw;
+        }
 
         #title{
             width: 100vw;
