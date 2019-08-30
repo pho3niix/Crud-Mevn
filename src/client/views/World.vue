@@ -69,34 +69,23 @@
 
 <style lang="scss" scoped>
     .world{
-        display: flex;
         width: 100vw;
-        height: 90vh;
-        flex-direction: column;
-        position: relative;
-        justify-content: center;
-
+        height: auto;
         h1{
             font-size: 2.5vw;
-        }
-
-        #title{
-            width: 100vw;
-            height: 5vh;
+            margin: 1vh;
             text-align: center;
         }
 
         #content{
             display: flex;
             width: 100vw;
-            height: 81vh;
+            height: auto;
             justify-content: center;
 
             #deck{
-                display: flex;
-                width: 90vw;
-                height: 81vh;
-                flex-wrap: wrap;
+                width: 86vw;
+                padding-bottom: 5vh;
 
                 #else{
                     display: block;

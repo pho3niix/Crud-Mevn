@@ -58,8 +58,8 @@
     $size: 16px;
 
     .card{
+        display: inline-block;
         border-radius: 1vw;
-        padding: .5vw;
         width: 19vw;
         height: 18vh;
         background-color: #324759;
