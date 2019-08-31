@@ -17,14 +17,16 @@
                 @click="findChar(dato._id)"
                 />
             </div>
-            <modal
-            v-show="isOpen"
-            @close="isOpen = false"
-            :id="characther._id"
-            :name="characther.name" 
-            :power="characther.power"
-            :life="characther.life"
-            />
+            <transition name="fade">
+                <modal
+                v-show="isOpen"
+                @close="isOpen = false"
+                :id="characther._id"
+                :name="characther.name" 
+                :power="characther.power"
+                :life="characther.life"
+                />
+            </transition>
         </div>
     </div>
 </template>
@@ -42,7 +44,10 @@
         },
         data() {
             return{
-                isOpen: false
+                isOpen: false,
+                perPage: 12,
+                page: 1,
+                pages: []
             }
         },
         methods: {
@@ -95,6 +100,13 @@
                 }
             }
 
+        }
+
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .3s;
+        }
+        .fade-enter, .fade-leave-to{
+            opacity: 0;
         }
     }
 </style>

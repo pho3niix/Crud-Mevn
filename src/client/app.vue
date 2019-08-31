@@ -28,7 +28,17 @@
     }
     input[type='button']{
         cursor: pointer;
+        outline: none;
     }
+
+    input[type=text]:focus{
+        outline: none;
+    }
+
+    button:focus{
+        outline: 0;
+    }
+
     #app{
         height: 100vh;
         overflow-x: hidden;
